@@ -1,0 +1,291 @@
+/* Modern wallet styles for Animint */
+.wallet-modal {
+  background: rgba(255,255,255,0.98);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px #6366f1aa;
+  max-width: 420px;
+  margin: 2rem auto;
+  overflow: hidden;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  animation: walletFadeIn 0.5s;
+}
+@keyframes walletFadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: none; }
+}
+.wallet-modal-header {
+  background: linear-gradient(90deg,#6366f1 60%,#a5b4fc 100%);
+  color: #fff;
+  padding: 1.2rem 2rem 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wallet-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.wallet-modal-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.wallet-modal-close:hover { color: #fbbf24; }
+.wallet-modal-body {
+  padding: 2rem 2rem 2.5rem 2rem;
+}
+.wallet-summary-card {
+  background: linear-gradient(90deg,#f1f5f9 60%,#e0e7ff 100%);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px #6366f122;
+  padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  position: relative;
+}
+.wallet-avatar {
+  font-size: 2.5rem;
+  margin-bottom: 0.2rem;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #6366f133;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wallet-balance-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+.wallet-balance-label {
+  color: #6366f1;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.wallet-balance-amount {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.wallet-balance-currency {
+  font-size: 1.1rem;
+  color: #6366f1;
+  font-weight: 600;
+  margin-left: 0.2rem;
+}
+.wallet-address-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  color: #334155;
+}
+.wallet-principal-short {
+  font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+  background: #e0e7ff;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  font-size: 1.01rem;
+}
+.wallet-chip-copy {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.7rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.wallet-chip-copy:hover { background: #4f46e5; }
+.wallet-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 1.2rem 0 1.5rem 0;
+}
+.wallet-tab, .wallet-tab-active {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6366f1;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.wallet-tab-active {
+  background: #6366f1;
+  color: #fff;
+  box-shadow: 0 2px 8px #6366f133;
+}
+.wallet-tab:focus, .wallet-tab-active:focus { outline: 2px solid #6366f1; }
+.wallet-toast {
+  margin-top: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.7rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px #6366f133;
+  background: #f1f5f9;
+  color: #6366f1;
+  animation: walletToastIn 0.3s;
+}
+.wallet-toast-success { background: #d1fae5; color: #059669; }
+.wallet-toast-error { background: #fee2e2; color: #dc2626; }
+.wallet-toast-info { background: #e0e7ff; color: #6366f1; }
+@keyframes walletToastIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+.wallet-warning {
+  margin-top: 1.2rem;
+  color: #dc2626;
+  background: #fee2e2;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.1rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.wallet-loading-spinner {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid #e0e7ff;
+  border-top: 3px solid #6366f1;
+  border-radius: 50%;
+  animation: walletSpin 1s linear infinite;
+  margin-right: 0.7rem;
+  vertical-align: middle;
+}
+@keyframes walletSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.nft-mint-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.nft-mint-input {
+  padding: 0.7rem 1.1rem;
+  border-radius: 0.7rem;
+  border: 1.5px solid #e0e7ff;
+  font-size: 1.1rem;
+  width: 100%;
+  max-width: 320px;
+  background: #f8fafc;
+  transition: border 0.2s;
+}
+.nft-mint-input:focus { border: 1.5px solid #6366f1; outline: none; }
+.nft-mint-button, .wallet-topup-btn {
+  background: linear-gradient(90deg,#6366f1 60%,#a5b4fc 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.7rem 2.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #6366f133;
+  transition: background 0.2s;
+}
+.nft-mint-button:disabled, .wallet-topup-btn:disabled {
+  background: #e0e7ff;
+  color: #a1a1aa;
+  cursor: not-allowed;
+}
+.nft-gallery {
+  margin-top: 1.2rem;
+}
+.nft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.2rem;
+}
+.nft-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px #6366f133;
+  padding: 0.7rem 0.7rem 0.5rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.nft-card:focus, .nft-card:hover {
+  box-shadow: 0 4px 16px #6366f155;
+  transform: translateY(-2px) scale(1.03);
+  outline: 2px solid #6366f1;
+}
+.nft-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 0.7rem;
+  margin-bottom: 0.5rem;
+  background: #e0e7ff;
+}
+.nft-info {
+  text-align: center;
+  color: #6366f1;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.nft-breed { font-size: 1.1rem; font-weight: 700; }
+.nft-id { font-size: 0.98rem; color: #a1a1aa; }
+.nft-empty-state {
+  text-align: center;
+  color: #a1a1aa;
+  margin: 2rem 0 1rem 0;
+}
+.nft-empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.nft-empty-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.nft-empty-subtext {
+  font-size: 0.98rem;
+  color: #6366f1;
+}
+.wallet-activity-list {
+  margin-top: 1.2rem;
+}
+.wallet-activity-item {
+  border-left: 5px solid #6366f1;
+  background: #fff;
+  margin-bottom: 0.7rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 0.7rem;
+  box-shadow: 0 1px 4px #e0e7ff;
+  transition: box-shadow 0.2s;
+}
+.wallet-activity-send { border-left-color: #dc2626; }
+.wallet-activity-receive { border-left-color: #059669; }
+.wallet-activity-mint { border-left-color: #6366f1; }
+.wallet-activity-item:focus { outline: 2px solid #6366f1; }
+@media (max-width: 600px) {
+  .wallet-modal { max-width: 98vw; }
+  .wallet-modal-body { padding: 1rem; }
+  .wallet-summary-card { padding: 1rem; }
+  .nft-mint-input { max-width: 98vw; }
+}

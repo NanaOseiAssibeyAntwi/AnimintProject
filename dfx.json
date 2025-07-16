@@ -1,0 +1,29 @@
+{
+  "canisters": {
+    "project_backend": {
+      "main": "src/project_backend/main.mo",
+      "type": "motoko",
+      "description": "Animint backend canister",
+      "build_args": "--package"
+    },
+    "project_frontend": {
+      "dependencies": [
+        "project_backend"
+      ],
+      "source": [
+        "src/project_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "project_frontend",
+      "description": "Animint frontend assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

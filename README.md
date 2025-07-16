@@ -1,118 +1,59 @@
-# 🐾 Animint
+# `project`
 
-**Animint** is a decentralized pedigree registry for purebred animals, built on the **Internet Computer (ICP)**. It combines blockchain, IoT, and verifiable credentials to create tamper-proof, self-assembling animal family trees.
+Welcome to your new `project` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
 
----
+To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
 
-## 🌐 What is Animint?
+To learn more before you start working with `project`, see the following documentation available online:
 
-Animint is a secure, verifiable platform where breeders, veterinarians, and owners can register and manage purebred animal lineages without relying on centralized databases. Each animal is registered on-chain using:
+- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
+- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
+- [Motoko Programming Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
+- [Motoko Language Quick Reference](https://internetcomputer.org/docs/current/motoko/main/language-manual)
 
-- **ISO-compliant microchip UIDs**
-- **Vet-issued verifiable credentials**
-- **Optional DNA hash proofs**
-
-Every new litter generates a **“Puppy NFT”** (or species equivalent), which automatically links to its sire and dam’s on-chain identities, forming a multigenerational, immutable pedigree record.
-
----
-
-## 🔐 Core Features
-
-### ✅ Authenticity
-- **Microchip Scans**: On-chain hash of ISO-compliant microchip IDs.
-- **Vet-Signed Credentials**: Verifiable signatures validate legitimacy.
-- **DNA Reports**: Optional genomic hashes stored off-chain, referenced by IPFS CID.
-
-### 🧬 Self-Assembling Lineage
-- Each offspring’s NFT links directly to its parents’ IDs.
-- No need for centralized authorities — pedigree builds automatically on-chain.
-
-### 🏅 Reputation Badges
-- **Non-transferable tokens** for breeders, representing:
-  - Show titles
-  - Health certifications
-  - Registry contributions
-
-### 💎 Fractional Stud Shares
-- Powered by a custom **ICP-1155-style** token standard.
-- Enables shared breeding rights, royalties, and automated revenue splits.
-
-### 🗳️ DAO Governance
-- Community votes define:
-  - Breed standards
-  - Registration and minting fees
-- Revenue flows into a DAO-controlled treasury.
-
----
-
-## 💰 Economic Model
-
-| Revenue Source             | Purpose                                    |
-|---------------------------|--------------------------------------------|
-| Minting Fees              | Fund DAO treasury and core maintenance     |
-| Secondary Market Royalties| 1–2% fee to breeders + DAO                 |
-| Premium Subscriptions     | Advanced dashboards & IoT integrations     |
-| Incentive Discounts       | Top breeders earn fee discounts via badges |
-
----
-
-## 📦 Off-Chain Metadata
-
-Stored on IPFS and referenced via CIDs, metadata includes:
-
-- Health records
-- Vet credentials
-- DNA report hashes
-- IoT-captured life events (GPS, temperature, vaccination logs)
-
----
-
-## 🔒 Security & Trust
-
-- **On-Chain Microchip Proofs**: Immutable device identity anchors
-- **IoT Integration**: Oracles verify GPS collars, vet devices, sequencers
-- **Tamper-Resistant**: Automated validation prevents counterfeits or fraud
-
----
-
-## 🛠️ Tech Stack
-
-| Layer           | Tech |
-|-----------------|------|
-| Smart Contracts | Motoko on ICP |
-| Storage         | IPFS (off-chain metadata) |
-| Identity/Auth   | Internet Identity / Plug Wallet |
-| Token Standards | Custom NFT (ICP-721) & Multi-Token (ICP-1155) |
-
----
-
-## 📈 Premium Tools (Coming Soon)
-
-- Lineage risk trend analysis
-- Cross-breeding compatibility insights
-- Health history visualization
-- IoT device dashboard (microchip, collar, sequencer)
-
----
-
-## 👫 Community & Governance
-
-- **DAO Voting**: Decide on key platform rules
-- **Open Standards**: Breed definitions and genetic health policies
-- **Developer Tools**: SDKs for integrating vet systems and breeders' apps
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- DFX SDK
-- Node.js (for frontend, if applicable)
-- Plug Wallet or Internet Identity
-
-### Deployment
+If you want to start working on your project right away, you might want to try the following commands:
 
 ```bash
+cd project/
+dfx help
+dfx canister --help
+```
+
+## Running the project locally
+
+If you want to test your project locally, you can use the following commands:
+
+```bash
+# Starts the replica, running in the background
 dfx start --background
+
+# Deploys your canisters to the replica and generates your candid interface
 dfx deploy
+```
+
+Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
+
+If you have made changes to your backend canister, you can generate a new candid interface with
+
+```bash
+npm run generate
+```
+
+at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
+
+If you are making frontend changes, you can start a development server with
+
+```bash
+npm start
+```
+
+Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
+
+### Note on frontend environment variables
+
+If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
+
+- set`DFX_NETWORK` to `ic` if you are using Webpack
+- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
+  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
+- Write your own `createActor` constructor
